@@ -1,0 +1,11 @@
+#!/bin/bash
+
+reference="$1"
+
+if [[ "$reference" != *"checkpoint-"* ]]; then
+  reference="checkpoint-$1"
+fi
+
+git add workshop
+git diff --staged $reference -- workshop
+git reset HEAD workshop >/dev/null

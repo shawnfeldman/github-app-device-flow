@@ -1,0 +1,13 @@
+#!/bin/bash
+
+reference="$1"
+
+if [[ "$reference" != *"checkpoint-"* ]]; then
+  reference="checkpoint-$1"
+fi
+
+echo "checking out $reference of 8 checkpoints"
+
+git checkout "$reference" -- workshop
+
+git reset HEAD workshop >/dev/null
